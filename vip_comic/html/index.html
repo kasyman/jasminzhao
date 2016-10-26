@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="Description" content="QQ会员-动漫特权">
+    <meta name="Keywords" content="Tencent,QQ会员,腾讯,特权,动漫">
+    <meta itemprop="name" content="动漫特权">
+    <meta name="description" itemprop="description" content="动漫特权">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="动漫特权">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <title>QQ会员动漫</title>
+    <link rel="stylesheet" href="../css/style.css?v=1">
+  </head>
+  <body>
+    <div class="loading">
+      <div class="loadpage">
+        <div class="icon-title"></div>
+        <span class="loading-num">0%</span>
+        <div class="progress"><span></span></div>
+        <div class="spark-group">
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <section class="wrapper">
+      <div class="first-page"></div>
+      <div class="main" id="main"></div>
+      <div class="footer">
+        <button class="btn">开通超级会员</button>
+        <p>去QQ动漫逛逛</p>
+      </div>
+      <div class="tips">
+        <img class="img" src="../img/tips.png" alt="">
+      </div>
+    </section>
+    <script src="http://i.gtimg.cn/vipstyle/vas/sng_travel/js/zepto.min.js"></script>
+    <script src="../js/bone.min.js"></script>
+    <script src="../js/css3d.min.js"></script>
+    <script src="../js/orienter.min.js"></script>
+    <script src="../js/jstween.min.js"></script>
+    <script src="../js/motion.js"></script>
+    <script src="../js/app/gesture.js"></script>
+    <script src="../js/app/pano.js"></script>
+    <script src="../js/app/main.js"></script>
+    <script>
+    // 资源加载器
+    var resList = [
+      '../img/first_page.jpg',
+      '../img/banner1.png',
+      '../img/banner2.png',
+      '../img/banner3.png',
+      '../img/banner4.png',
+      '../img/banner5.png',
+      '../img/title1.png',
+      '../img/title2.png',
+      '../img/title3.png',
+      '../img/title4.png',
+      '../img/title5.png',
+      '../img/bg.jpg',
+      '../img/tips.png'
+    ];
+    var $num = $('.loading-num'),
+      $progress = $('.progress span'),
+      loader = new mo.Loader(resList,
+      {
+        loadType: 1,
+        minTime: 80,
+        onLoading: function(count, total)
+        {
+          $num.text(Math.floor((count / total) * 100) + '%');
+          $progress.css('width', Math.floor((count / total) * 100) + '%');
+        },
+        onComplete: function(time)
+        {
+          pageInit(); // 加载完成进入页面
+        }
+      });
+    </script>
+  </body>
+</html>
